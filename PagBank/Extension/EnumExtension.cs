@@ -1,10 +1,8 @@
-﻿using System.ComponentModel;
-
-namespace PagBank.Extensions
+﻿namespace PagBank.Extension
 {
-    public static class EnumExtensions
+    public static class EnumExtension
     {
-        public static string GetDescription(this Enum value)
+        public static string GetDescription(this BaseUrl value)
         {
             var type = value.GetType();
             var memberInfo = type.GetMember(value.ToString());

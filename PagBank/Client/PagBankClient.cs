@@ -1,4 +1,4 @@
-﻿namespace PagBank.Clients
+﻿namespace PagBank.Client
 {
     public class PagBankClient : IPagBankClient, IDisposable
     {

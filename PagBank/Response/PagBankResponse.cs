@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-namespace PagBank.Responses
+﻿namespace PagBank.Response
 {
     public class PagBankResponse
     {

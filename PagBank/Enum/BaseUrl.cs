@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace PagBank.Enums
+﻿namespace PagBank.Enum
 {
     public enum BaseUrl
     {

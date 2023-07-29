@@ -1,3 +1,6 @@
+using PagBank.Client;
+using PagBank.Enum;
+
 namespace PagBankTest
 {
     public class Tests
@@ -10,10 +13,10 @@ namespace PagBankTest
         public async Task Test1()
         {
             var header = new Dictionary<string, string>();
-            header.Add("Authorization", $"Bearer {token}");
             header.Add("accept", "application/json");
 
-            var response = await client.GetAsync("public-keys/card");
+            var response = await client.GetAsync("{seu_endpoint}", header);
+            client.Dispose();
             Assert.Pass();
         }
     }

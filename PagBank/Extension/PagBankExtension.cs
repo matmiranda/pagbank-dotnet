@@ -1,7 +1,4 @@
-﻿using PagBank.Responses;
-using System.ComponentModel;
-
-namespace PagBank.Extensions
+﻿namespace PagBank.Extension
 {
     public static class PagBankExtension
     {
