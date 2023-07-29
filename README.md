@@ -11,8 +11,9 @@ using PagBank.Client;
 using PagBank.Enum;
 
 var token = "123";
+var endpoint = "{coloca_seu_endpoint}";
 var client = new PagBankClient(BaseUrl.Sandbox, token);
-var response = await client.GetAsync("{seu_endpoint}");
+var response = await client.GetAsync(endpoint);
 ```
 
 #### 2 - Passando parâmetro header
@@ -20,14 +21,15 @@ var response = await client.GetAsync("{seu_endpoint}");
 ```C#
 var header = new Dictionary<string, string>();
 header.Add("accept", "application/json");
-
-var response = await client.GetAsync("{seu_endpoint}", header);
+var endpoint = "{coloca_seu_endpoint}";
+var response = await client.GetAsync(endpoint, header);
 ```
 
 #### 3 - Exemplo de como listar assinauras
 
 ```C#
 var token = "123";
+var endpoint = "payments";
 var client = new PagBankClient(BaseUrl.SandboxSignature, token);
-var response = await client.GetAsync("payments");
+var response = await client.GetAsync(endpoint);
 ```
