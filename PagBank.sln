@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagBank", "PagBank\PagBank.csproj", "{BDA7C10B-4354-4E79-A598-1AC8B796AD06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagBankTest", "PagBankTest\PagBankTest.csproj", "{E62EB06F-3B6D-4846-A61A-08B4CFDB971D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDA7C10B-4354-4E79-A598-1AC8B796AD06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA7C10B-4354-4E79-A598-1AC8B796AD06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA7C10B-4354-4E79-A598-1AC8B796AD06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA7C10B-4354-4E79-A598-1AC8B796AD06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E62EB06F-3B6D-4846-A61A-08B4CFDB971D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E62EB06F-3B6D-4846-A61A-08B4CFDB971D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E62EB06F-3B6D-4846-A61A-08B4CFDB971D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E62EB06F-3B6D-4846-A61A-08B4CFDB971D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97B04A5E-6CE2-416C-992F-EDCA83F39FEB}
+	EndGlobalSection
+EndGlobal
