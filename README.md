@@ -1,8 +1,14 @@
 ## Como usar
 
+<p align="center">
+  <a href="https://dev.wirecard.com.br/v2.0/">
+    <img src="https://raw.githubusercontent.com/matmiranda/pagbank-dotnet/main/Images/pagbank-dotnet.png" alt="Wirecard logo" width=400>
+  </a>
+</p>
+
 Instale o pacote com a última versão [pagbank-dotnet](https://www.nuget.org/packages/pagbank-dotnet)
 
-Documentação PagBank [api reference](https://dev.pagbank.uol.com.br/reference/introducao)
+Documentação Oficial da PagBank [api reference](https://dev.pagbank.uol.com.br/reference/introducao)
 
 #### 1- Exemplo básico
 
