@@ -8,9 +8,11 @@
 
 Pacote Nuget [pagbank-dotnet](https://www.nuget.org/packages/pagbank-dotnet) ou execute o comando abaixo:
 
->dotnet add package pagbank-dotnet --version
+```
+dotnet add package pagbank-dotnet --version
+```
 
-Documentação Oficial da PagBank [api reference](https://dev.pagbank.uol.com.br/reference/introducao)
+Documentação Oficial da [PagBank](https://dev.pagbank.uol.com.br/reference/introducao)
 
 #### 1- Exemplo básico
 
