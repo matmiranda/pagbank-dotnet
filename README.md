@@ -1,8 +1,6 @@
-## Instalação
-Instala o pacote com a última versão [pagbank-dotnet](https://www.nuget.org/packages/pagbank-dotnet)
-
-
 ## Como usar
+
+Instale o pacote com a última versão [pagbank-dotnet](https://www.nuget.org/packages/pagbank-dotnet)
 
 #### 1- Exemplo básico
 
