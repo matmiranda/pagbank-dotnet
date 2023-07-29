@@ -1,10 +1,10 @@
-## Como usar
-
 <p align="center">
   <a href="https://dev.wirecard.com.br/v2.0/">
     <img src="https://raw.githubusercontent.com/matmiranda/pagbank-dotnet/main/Images/pagbank-dotnet.png" alt="Wirecard logo" width=400>
   </a>
 </p>
+
+## Como usar
 
 Instale o pacote com a última versão [pagbank-dotnet](https://www.nuget.org/packages/pagbank-dotnet)
 
