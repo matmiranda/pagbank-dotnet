@@ -1,66 +1,35 @@
 ﻿namespace PagBank.Client
 {
-    public class PagBankClient : IPagBankClient, IDisposable
+    public class PagBankClient : IPagBankClient
     {
-        private static readonly HttpClient _httpClient = new();
+        private readonly BaseUrl _baseUrl;
+        private readonly string _token;
 
         public PagBankClient(BaseUrl baseUrl, string token)
         {
-            _httpClient.BaseAddress = new Uri(baseUrl.GetDescription());
-            _httpClient.DefaultRequestHeaders.Authorization = new("Bearer", token);
-            _httpClient.DefaultRequestHeaders.UserAgent.Add(new("pagbank-dotnet", GetVersion()));
+            _baseUrl = baseUrl;
+            _token = token;
         }
 
-        public async Task<PagBankResponse> GetAsync(string endpoint, IDictionary<string, string>? header = null)
+        public async Task<RestResponse> ExecuteAsync<T>(Method method, string endpoint, T body) where T : class
         {
-            ClearHeaderIfExists(header);
-            var response = await _httpClient.GetAsync(endpoint);
-            return await response.GetPagBankResponseAsync();
+            var options = new RestClientOptions(_baseUrl.GetDescription());
+            options.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_token, "Bearer");
+            using var client = new RestClient(options);
+            var request = new RestRequest(endpoint, method);
+            request.AddJsonBody(body, ContentType.Json);
+            request.AddHeader("accept", ContentType.Json);
+            return await client.ExecuteAsync(request);
         }
 
-        public async Task<PagBankResponse> PostAsync(string endpoint, string? content = null, IDictionary<string, string>? header = null)
+        public async Task<RestResponse> ExecuteAsync(Method method, string endpoint)
         {
-            ClearHeaderIfExists(header);
-            var httpContent = string.IsNullOrEmpty(content) ? null : new StringContent(content);
-            var response = await _httpClient.PostAsync(endpoint, httpContent);
-            return await response.GetPagBankResponseAsync();
-        }
-
-        public async Task<PagBankResponse> PutAsync(string endpoint, string? content = null, IDictionary<string, string>? header = null)
-        {
-            ClearHeaderIfExists(header);
-            var httpContent = string.IsNullOrEmpty(content) ? null : new StringContent(content);
-            var response = await _httpClient.PutAsync(endpoint, httpContent);
-            return await response.GetPagBankResponseAsync();
-        }
-
-        public async Task<PagBankResponse> DeleteAsync(string endpoint, IDictionary<string, string>? header = null)
-        {
-            ClearHeaderIfExists(header);
-            var response = await _httpClient.DeleteAsync(endpoint);
-            return await response.GetPagBankResponseAsync();
-        }
-
-        public void Dispose()
-        {
-            _httpClient?.Dispose();
-            GC.SuppressFinalize(this);
-        }
-
-        internal static void ClearHeaderIfExists(IDictionary<string, string>? header)
-        {
-            if (header != null)
-            {
-                var authHeader = _httpClient.DefaultRequestHeaders.Authorization;
-
-                _httpClient.DefaultRequestHeaders.Clear();
-
-                foreach (var hdr in header)
-                    _httpClient.DefaultRequestHeaders.Add(hdr.Key, hdr.Value);
-
-                _httpClient.DefaultRequestHeaders.Authorization = authHeader;
-                _httpClient.DefaultRequestHeaders.UserAgent.Add(new("pagbank-dotnet", GetVersion()));
-            }
+            var options = new RestClientOptions(_baseUrl.GetDescription());
+            options.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_token, "Bearer");
+            using var client = new RestClient(options);
+            var request = new RestRequest(endpoint, method);
+            request.AddHeader("accept", ContentType.Json);
+            return await client.ExecuteAsync(request);
         }
 
         internal static string? GetVersion()

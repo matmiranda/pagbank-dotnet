@@ -2,9 +2,7 @@
 {
     public interface IPagBankClient
     {
-        Task<PagBankResponse> GetAsync(string endpoint, IDictionary<string, string>? header = null);
-        Task<PagBankResponse> PostAsync(string endpoint, string? content = null, IDictionary<string, string>? header = null);
-        Task<PagBankResponse> PutAsync(string endpoint, string? content = null, IDictionary<string, string>? header = null);
-        Task<PagBankResponse> DeleteAsync(string endpoint, IDictionary<string, string>? header = null);
+        Task<RestResponse> ExecuteAsync<T>(Method method, string endpoint, T body) where T : class;
+        Task<RestResponse> ExecuteAsync(Method method, string endpoint);
     }
 }
