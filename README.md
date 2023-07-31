@@ -17,13 +17,11 @@ Documentação Oficial da [PagBank](https://dev.pagbank.uol.com.br/reference/int
 #### 1- Exemplo básico
 
 ```C#
-using PagBank.Client;
-using PagBank.Enum;
+using PagBank;
 
 var token = "123";
-var endpoint = "{coloca_seu_endpoint}";
 var client = new PagBankClient(BaseUrl.Sandbox, token);
-var response = await client.GetAsync(endpoint);
+var response = await client.ExecuteAsync(Method.Post, "{seu_endpoint}", body);
 ```
 
 #### 2 - Passando parâmetro header

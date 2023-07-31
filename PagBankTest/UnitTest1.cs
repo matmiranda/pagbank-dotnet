@@ -10,6 +10,9 @@ namespace PagBankTest
         [Test]
         public async Task Test1()
         {
+            var header = new Dictionary<string, string>();
+            header.Add("accept", "application/json");
+
             var body = new
             {
                 customer = new
@@ -21,7 +24,7 @@ namespace PagBankTest
                 reference_id = "1234"
             };
 
-            var response = await client.ExecuteAsync(Method.Post, "orders", body);
+            var response = await client.ExecuteAsync(Method.Post, "orders", body, header);
             Assert.Pass();
         }
     }
