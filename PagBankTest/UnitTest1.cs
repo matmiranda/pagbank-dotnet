@@ -4,8 +4,8 @@ namespace PagBankTest
 {
     public class Tests
     {
-        private static readonly string token = "123";
-        private static readonly PagBankClient client = new(BaseUrl.Sandbox, token);
+        private static string token = "123";
+        private static PagBankClient client = new(BaseUrl.Sandbox, token);
 
         [Test]
         public async Task Test1()
@@ -24,7 +24,16 @@ namespace PagBankTest
                 reference_id = "1234"
             };
 
-            var response = await client.ExecuteAsync(Method.Post, "orders", body, header);
+            var request = new PagBankRequest<object>
+            {
+                Body = null,
+                Headers = null,
+                Method = Method.Get,
+                Endpoint = "orders/ORDE_xxxxxxxxx"
+            };
+
+            var response = await client.ExecuteAsync(request);
+
             Assert.Pass();
         }
     }

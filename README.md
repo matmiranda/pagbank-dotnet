@@ -14,30 +14,64 @@ dotnet add package pagbank-dotnet --version
 
 Documentação Oficial da [PagBank](https://dev.pagbank.uol.com.br/reference/introducao)
 
-#### 1- Exemplo básico
+#### 1- Usando e instanciando PagBank
 
-```C#
+```c#
 using PagBank;
 
-var token = "123";
-var client = new PagBankClient(BaseUrl.Sandbox, token);
-var response = await client.ExecuteAsync(Method.Post, "{seu_endpoint}", body);
+private static string token = "123";
+private static PagBankClient client = new(BaseUrl.Sandbox, token);
 ```
 
-#### 2 - Passando parâmetro header
+#### 1- Exemplo básico
 
-```C#
-var header = new Dictionary<string, string>();
-header.Add("accept", "application/json");
-var endpoint = "{coloca_seu_endpoint}";
-var response = await client.GetAsync(endpoint, header);
+```c#
+var request = new PagBankRequest<object>
+{
+    Body = null,
+    Headers = null,
+    Method = Method.Get,
+    Endpoint = "{seu_endpoint}"
+};
+
+var response = await client.ExecuteAsync(request);
 ```
 
-#### 3 - Exemplo de como listar assinauras
+#### 2 - Exemplo de criar o pedido
 
-```C#
-var token = "123";
-var endpoint = "payments";
-var client = new PagBankClient(BaseUrl.SandboxSignature, token);
-var response = await client.GetAsync(endpoint);
+```c#
+var body = new
+{
+    customer = new
+    {
+        tax_id = "62046100077",
+        email = "teste@teste.com.br",
+        name = "João Silva"
+    },
+    reference_id = "1234"
+};
+
+var request = new PagBankRequest<object>
+{
+    Body = body,
+    Headers = null,
+    Method = Method.Post,
+    Endpoint = "orders"
+};
+
+var response = await client.ExecuteAsync(request);
+```
+
+#### 3 - Exemplo de consultar pedidos
+
+```c#
+var request = new PagBankRequest<object>
+{
+    Body = null,
+    Headers = null,
+    Method = Method.Get,
+    Endpoint = "orders/ORDE_XXXXXXXX"
+};
+
+var response = await client.ExecuteAsync(request);
 ```

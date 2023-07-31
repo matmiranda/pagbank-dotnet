@@ -1,7 +1,4 @@
-﻿using RestSharp;
-using System.Reflection.PortableExecutable;
-
-namespace PagBank
+﻿namespace PagBank
 {
     public class PagBankClient : IPagBankClient
     {
@@ -14,36 +11,17 @@ namespace PagBank
             _token = token;
         }
 
-        public async Task<RestResponse> ExecuteAsync<T>(
-            Method method, 
-            string endpoint, 
-            T body,
-            IDictionary<string, string>? headers = null) where T : class
+        public async Task<RestResponse> ExecuteAsync<T>(PagBankRequest<T> pagBankRequest) where T : class
         {
             var options = new RestClientOptions(_baseUrl.GetDescription());
             options.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_token, "Bearer");
             using var client = new RestClient(options);
-            var request = new RestRequest(endpoint, (RestSharp.Method)method);
-            request.AddJsonBody(body, ContentType.Json);
+            var request = new RestRequest(pagBankRequest.Endpoint, (RestSharp.Method)pagBankRequest.Method);
+            if (pagBankRequest.Body != null)
+                request.AddJsonBody(pagBankRequest.Body, ContentType.Json);
             request.AddHeader("accept", ContentType.Json);
-            if (headers != null)
-                foreach (var header in headers)
-                    request.AddOrUpdateHeader(header.Key, header.Value);
-            return await client.ExecuteAsync(request);
-        }
-
-        public async Task<RestResponse> ExecuteAsync(
-            Method method,
-            string endpoint, 
-            IDictionary<string, string>? headers = null)
-        {
-            var options = new RestClientOptions(_baseUrl.GetDescription());
-            options.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_token, "Bearer");
-            using var client = new RestClient(options);
-            var request = new RestRequest(endpoint, (RestSharp.Method)method);
-            request.AddHeader("accept", ContentType.Json);
-            if (headers != null)
-                foreach (var header in headers)
+            if (pagBankRequest.Headers != null)
+                foreach (var header in pagBankRequest.Headers)
                     request.AddOrUpdateHeader(header.Key, header.Value);
             return await client.ExecuteAsync(request);
         }
