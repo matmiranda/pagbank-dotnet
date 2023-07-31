@@ -1,6 +1,5 @@
-<picture>
- <img alt="dotnet" src="https://raw.githubusercontent.com/matmiranda/pagbank-dotnet/main/Images/pagbank-dotnet.png">
-</picture>
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+
 
 ## Como usar
 
