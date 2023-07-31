@@ -26,10 +26,9 @@ namespace PagBankTest
 
             var request = new PagBankRequest<object>
             {
-                Body = null,
-                Headers = null,
-                Method = Method.Get,
-                Endpoint = "orders/ORDE_xxxxxxxxx"
+                Body = body,
+                Method = Method.Post,
+                Endpoint = "orders"
             };
 
             var response = await client.ExecuteAsync(request);

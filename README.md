@@ -52,7 +52,6 @@ var body = new
 var request = new PagBankRequest<object>
 {
     Body = body,
-    Headers = null,
     Method = Method.Post,
     Endpoint = "orders"
 };
@@ -65,8 +64,6 @@ var response = await client.ExecuteAsync(request);
 ```c#
 var request = new PagBankRequest<object>
 {
-    Body = null,
-    Headers = null,
     Method = Method.Get,
     Endpoint = "orders/ORDE_XXXXXXXX"
 };
