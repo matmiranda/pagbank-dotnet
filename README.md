@@ -1,4 +1,5 @@
 ![dotnet status](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml/badge.svg?event=push)
+[![NuGet Badge](https://buildstats.info/nuget/pagbank-dotnet)](https://www.nuget.org/packages/pagbank-dotnet)
 
 ## Como usar
 
