@@ -1,4 +1,4 @@
-﻿namespace PagBank.Client
+﻿namespace PagBank
 {
     public class PagBankClient : IPagBankClient
     {
@@ -16,7 +16,7 @@
             var options = new RestClientOptions(_baseUrl.GetDescription());
             options.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_token, "Bearer");
             using var client = new RestClient(options);
-            var request = new RestRequest(endpoint, method);
+            var request = new RestRequest(endpoint, (RestSharp.Method)method);
             request.AddJsonBody(body, ContentType.Json);
             request.AddHeader("accept", ContentType.Json);
             return await client.ExecuteAsync(request);
@@ -27,7 +27,7 @@
             var options = new RestClientOptions(_baseUrl.GetDescription());
             options.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_token, "Bearer");
             using var client = new RestClient(options);
-            var request = new RestRequest(endpoint, method);
+            var request = new RestRequest(endpoint, (RestSharp.Method)method);
             request.AddHeader("accept", ContentType.Json);
             return await client.ExecuteAsync(request);
         }

@@ -1,4 +1,4 @@
-﻿namespace PagBank.Enum
+﻿namespace PagBank
 {
     public enum BaseUrl
     {
@@ -20,5 +20,19 @@
         [Description("https://api.assinaturas.pagseguro.com")]
         ProductionSignature
 
+    }
+
+    public enum Method
+    {
+        Get, 
+        Post, 
+        Put, 
+        Delete, 
+        Head, 
+        Options,
+        Patch, 
+        Merge, 
+        Copy, 
+        Search
     }
 }

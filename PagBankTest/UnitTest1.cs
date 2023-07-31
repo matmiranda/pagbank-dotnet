@@ -1,6 +1,4 @@
-using PagBank.Client;
-using PagBank.Enum;
-using RestSharp;
+using PagBank;
 
 namespace PagBankTest
 {
