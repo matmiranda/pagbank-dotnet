@@ -1,8 +1,6 @@
-<p align="center">
-  <a href="https://dev.wirecard.com.br/v2.0/">
-    <img src="https://raw.githubusercontent.com/matmiranda/pagbank-dotnet/main/Images/pagbank-dotnet.png" alt="Wirecard logo" width=400>
-  </a>
-</p>
+<picture>
+ <img alt="dotnet" src="https://raw.githubusercontent.com/matmiranda/pagbank-dotnet/main/Images/pagbank-dotnet.png">
+</picture>
 
 ## Como usar
 
