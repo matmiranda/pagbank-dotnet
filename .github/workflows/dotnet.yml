@@ -21,7 +21,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test with Coverlet
-      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --settings test.runsettings
+      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --settings .github/workflows/test.runsettings
       env:
         COVERLET_OUTPUT: PagBankTest/TestResults/coverage/
     - name: Generate Coverage Report
