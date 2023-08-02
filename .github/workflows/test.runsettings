@@ -1,0 +1,22 @@
+{
+  "RunSettings": {
+    "DataCollectionRunSettings": {
+      "DataCollectors": {
+        "XPlat code coverage": {
+          "DataCollectorFriendlyName": "XPlat code coverage",
+          "DataCollectorUri": "datacollector://Microsoft/AspNetCore.Coverlet.Collector/v7.0.0",
+          "Configuration": {
+            "Exclude": [ "System*",
+                         "Microsoft*",
+                         "xunit.*",
+                         "coverlet.*",
+                         "reportgenerator.*",
+                         "<excludefilepatterns>" ],
+            "Include": [ "<AssemblyFilters>" ],
+            "SingleHit": true
+          }
+        }
+      }
+    }
+  }
+}

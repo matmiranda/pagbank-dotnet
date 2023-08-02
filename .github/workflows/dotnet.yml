@@ -15,10 +15,23 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    - name: Test with Coverlet
+      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --settings test.runsettings
+      env:
+        COVERLET_OUTPUT: PagBankTest/TestResults/coverage/
+    - name: Generate Coverage Report
+      uses: danielpalme/ReportGenerator@v4
+      with:
+        reports: ${{ env.COVERLET_OUTPUT }}/coverage.cobertura.xml
+        targetdir: ${{ env.COVERLET_OUTPUT }}/report
+        reporttypes: 'html'
+    - name: Publish Coverage Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage-report
+        path: ${{ env.COVERLET_OUTPUT }}/report
