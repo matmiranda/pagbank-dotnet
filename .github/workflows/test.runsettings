@@ -1,22 +1,16 @@
-{
-  "RunSettings": {
-    "DataCollectionRunSettings": {
-      "DataCollectors": {
-        "XPlat code coverage": {
-          "DataCollectorFriendlyName": "XPlat code coverage",
-          "DataCollectorUri": "datacollector://Microsoft/AspNetCore.Coverlet.Collector/v7.0.0",
-          "Configuration": {
-            "Exclude": [ "System*",
-                         "Microsoft*",
-                         "xunit.*",
-                         "coverlet.*",
-                         "reportgenerator.*",
-                         "<excludefilepatterns>" ],
-            "Include": [ "<AssemblyFilters>" ],
-            "SingleHit": true
-          }
-        }
-      }
-    }
-  }
-}
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <ResultsDirectory>$(System.DefaultWorkingDirectory)/TestResults</ResultsDirectory>
+  </RunConfiguration>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>json,cobertura</Format>
+          <OutputDirectory>$(System.DefaultWorkingDirectory)/TestResults/Coverage</OutputDirectory>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
