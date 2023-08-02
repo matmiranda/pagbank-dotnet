@@ -27,9 +27,10 @@ jobs:
     - name: Generate Coverage Report
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
     - name: Generate Coverage Report HTML
-      run: reportgenerator "-reports:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/coverage.json" "-targetdir:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/report" -reporttypes:Html
+      run: reportgenerator "-reports:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/*.json" "-targetdir:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/report" -reporttypes:Html
     - name: Publish Coverage Report
       uses: actions/upload-artifact@v2
       with:
         name: coverage-report
         path: ${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/report
+
