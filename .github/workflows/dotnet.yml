@@ -20,18 +20,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test with Coverlet
-      run: dotnet test --no-build --verbosity normal --settings .github/workflows/test.runsettings
-      env:
-        COVERLET_OUTPUT: PagBankTest/TestResults/Coverage/
-    - name: Generate Coverage Report
-      run: dotnet tool install -g dotnet-reportgenerator-globaltool
-    - name: Generate Coverage Report HTML
-      run: reportgenerator "-reports:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/*.json" "-targetdir:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/report" -reporttypes:Html
-    - name: Publish Coverage Report
-      uses: actions/upload-artifact@v2
-      with:
-        name: coverage-report
-        path: ${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/report
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
 
 
