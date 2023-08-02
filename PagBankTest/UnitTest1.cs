@@ -1,18 +1,23 @@
+using Moq;
 using PagBank;
+using RestSharp;
+using System.Net;
 
 namespace PagBankTest
 {
     public class Tests
     {
-        private static string token = "123";
-        private static PagBankClient client = new(BaseUrl.Sandbox, token);
-
         [Test]
-        public async Task Test1()
+        public async Task MockCriarPedido()
         {
-            var header = new Dictionary<string, string>();
-            header.Add("accept", "application/json");
+            // Define o seu token
+            var token = "123";
 
+            // Crie header
+            //var header = new Dictionary<string, string>();
+            //header.Add("accept", "application/json");
+
+            // Crie objeto 
             var body = new
             {
                 customer = new
@@ -24,16 +29,39 @@ namespace PagBankTest
                 reference_id = "1234"
             };
 
-            var request = new PagBankRequest<object>
+            // Crie um mock do IRestClientWrapper
+            var mockRestClient = new Mock<IRestClient>();
+
+            // Configure o comportamento do mock para o método ExecuteAsync
+            var pagBankRequest = new PagBankRequest<object>
             {
+                // Defina os valores necessários para o PagBankRequest
                 Body = body,
-                Method = Method.Post,
+                Method = PagBank.Method.Post,
                 Endpoint = "orders"
             };
 
-            var response = await client.ExecuteAsync(request);
+            // Defina o valor de retorno que você deseja para o método ExecuteAsync
+            var restResponse = new RestResponse
+            {
+                StatusCode = HttpStatusCode.Created,
+                Content = "criado com sucesso"
+            };
 
-            Assert.Pass();
+            // Configura o mock para retornar 'restResponse' quando o método 'ExecuteAsync' for chamado
+            mockRestClient
+                .Setup(x => x.ExecuteAsync(It.IsAny<RestRequest>(), default))
+                .ReturnsAsync(restResponse);
+
+            // Create the PagBankClient using the mocked IRestClient
+            var pagBankClient = new PagBankClient(BaseUrl.Sandbox, token, mockRestClient.Object);
+
+            // Chame o método que utiliza o método ExecuteAsync
+            //var response = await pagBankClient.ExecuteAsync(pagBankRequest);
+            var response = await pagBankClient.ExecuteAsync(pagBankRequest);
+
+            // Verifique o resultado
+            Assert.That(restResponse, Is.EqualTo(response));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿global using PagBank.Client.Interface;
-global using PagBank.Extension;
+﻿global using PagBank.Extension;
 global using RestSharp;
 global using RestSharp.Authenticators.OAuth2;
 global using System.ComponentModel;

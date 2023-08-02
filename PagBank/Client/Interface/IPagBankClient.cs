@@ -1,4 +1,4 @@
-﻿namespace PagBank.Client.Interface
+﻿namespace PagBank
 {
     public interface IPagBankClient
     {
