@@ -25,11 +25,9 @@ jobs:
       env:
         COVERLET_OUTPUT: PagBankTest/TestResults/coverage/
     - name: Generate Coverage Report
-      uses: danielpalme/ReportGenerator@v4
-      with:
-        reports: ${{ env.COVERLET_OUTPUT }}/coverage.cobertura.xml
-        targetdir: ${{ env.COVERLET_OUTPUT }}/report
-        reporttypes: 'html'
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
+    - name: Generate Coverage Report HTML
+      run: reportgenerator "-reports:${{ env.COVERLET_OUTPUT }}/coverage.cobertura.xml" "-targetdir:${{ env.COVERLET_OUTPUT }}/report" -reporttypes:Html
     - name: Publish Coverage Report
       uses: actions/upload-artifact@v2
       with:
