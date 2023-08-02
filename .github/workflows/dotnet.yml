@@ -23,13 +23,13 @@ jobs:
     - name: Test with Coverlet
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --settings .github/workflows/test.runsettings
       env:
-        COVERLET_OUTPUT: PagBankTest/TestResults/coverage/
+        COVERLET_OUTPUT: TestResults/Coverage/
     - name: Generate Coverage Report
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
     - name: Generate Coverage Report HTML
-      run: reportgenerator "-reports:${{ env.COVERLET_OUTPUT }}/coverage.cobertura.xml" "-targetdir:${{ env.COVERLET_OUTPUT }}/report" -reporttypes:Html
+      run: reportgenerator "-reports:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/coverage.json" "-targetdir:${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/report" -reporttypes:Html
     - name: Publish Coverage Report
       uses: actions/upload-artifact@v2
       with:
         name: coverage-report
-        path: ${{ env.COVERLET_OUTPUT }}/report
+        path: ${{ github.workspace }}/${{ env.COVERLET_OUTPUT }}/report
