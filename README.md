@@ -14,11 +14,11 @@ A _**pagbank-dotnet**_ foi desenvolvida para simplificar e agilizar a comunicaç
 
 ## Principais Recursos
 
-- [x] Integração perfeita com o RestSharp para chamadas RESTful
-- [x] Suporte a autenticação segura e gerenciamento de tokens
-- [x] Operações assíncronas eficientes para não bloquear a thread principal
-- [x] Abstração de dados para simplificar o processamento de respostas
-- [x] Extensa documentação e exemplos práticos
+- Integração perfeita com o RestSharp para chamadas RESTful
+- Suporte a autenticação segura e gerenciamento de tokens
+- Operações assíncronas eficientes para não bloquear a thread principal
+- Abstração de dados para simplificar o processamento de respostas
+- Extensa documentação e exemplos práticos
 
 ## Instalação
 
