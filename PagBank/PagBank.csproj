@@ -4,8 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>1.0.2</Version>
-    <Authors>Matheus Miranda</Authors>
+    <Version>1.0.3</Version>
+    <Authors>Matheus Miranda, PagBank</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageTags>pagbank;dotnet</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
@@ -18,9 +18,14 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>Copyright (c) 2023 Matheus Miranda</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>pagbank-dotnet.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\Icon\pagbank-dotnet.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -33,6 +38,10 @@
 
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="110.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Service\" />
   </ItemGroup>
 
 </Project>

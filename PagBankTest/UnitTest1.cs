@@ -10,13 +10,6 @@ namespace PagBankTest
         [Test]
         public async Task MockCriarPedido()
         {
-            // Define o seu token
-            var token = "123";
-
-            // Crie header
-            //var header = new Dictionary<string, string>();
-            //header.Add("accept", "application/json");
-
             // Crie objeto 
             var body = new
             {
@@ -53,11 +46,17 @@ namespace PagBankTest
                 .Setup(x => x.ExecuteAsync(It.IsAny<RestRequest>(), default))
                 .ReturnsAsync(restResponse);
 
+            var config = new PagBankConfig 
+            {
+              BaseUrl = BaseUrl.Sandbox,
+              Token = "123",
+              RestClient = mockRestClient.Object
+            };
+
             // Create the PagBankClient using the mocked IRestClient
-            var pagBankClient = new PagBankClient(BaseUrl.Sandbox, token, mockRestClient.Object);
+            var pagBankClient = new PagBankClient(config);
 
             // Chame o método que utiliza o método ExecuteAsync
-            //var response = await pagBankClient.ExecuteAsync(pagBankRequest);
             var response = await pagBankClient.ExecuteAsync(pagBankRequest);
 
             // Verifique o resultado
