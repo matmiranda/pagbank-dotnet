@@ -58,7 +58,7 @@ var request = new PagBankRequest<object>
 var response = await client.ExecuteAsync(request);
 ```
 
-#### 2 - Exemplo de criar o pedido
+#### Exemplo de criar o pedido
 
 ```c#
 var body = new
@@ -82,7 +82,7 @@ var request = new PagBankRequest<object>
 var response = await client.ExecuteAsync(request);
 ```
 
-#### 3 - Exemplo de consultar pedidos
+#### Exemplo de consultar pedidos
 
 ```c#
 var request = new PagBankRequest<object>
