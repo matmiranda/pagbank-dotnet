@@ -17,8 +17,13 @@ Documentação Oficial da [PagBank](https://dev.pagbank.uol.com.br/reference/int
 ```c#
 using PagBank;
 
-private static string token = "123";
-private static PagBankClient client = new(BaseUrl.Sandbox, token);
+var config = new PagBankConfig
+{
+    BaseUrl = BaseUrl.Sandbox,
+    Token = "123"
+};
+
+var client = new PagBankClient(config);
 ```
 
 #### 1- Exemplo básico
