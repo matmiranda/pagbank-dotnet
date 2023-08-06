@@ -175,7 +175,9 @@ Para mais detalhes e exemplos detalhados, consulte nossa [Wiki](https://github.c
 
 ## Contribua e Ajude a Melhorar
 
-Nós valorizamos sua contribuição para tornar a biblioteca _**pagbank-dotnet**_ ainda melhor! Se você encontrar erros, problemas ou tiver ideias para melhorias, fique à vontade para:
+Nós valorizamos sua contribuição para tornar a biblioteca _**pagbank-dotnet**_ ainda melhor! 
+
+Se você encontrar erros, problemas ou tiver ideias para melhorias, fique à vontade para:
 
 - Abrir problemas (Issues) detalhados para relatar erros ou propor melhorias.
 - Enviar pull requests (PRs) com suas contribuições e correções.
