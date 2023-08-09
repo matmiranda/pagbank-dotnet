@@ -40,58 +40,42 @@ Para informações detalhadas sobre como usar a biblioteca _**pagbank-dotnet**_ 
 ```c#
 using PagBank;
 
-var config = new PagBankConfig
-{
-    BaseUrl = BaseUrl.Sandbox,
-    Token = "123"
-};
-
-var client = new PagBankClient(config);
-
-var request = new PagBankRequest<object>
-{
-    Body = //string ou seu objeto, da sua preferência,
-    Method = Method.Get,
-    Endpoint = "{seu_endpoint}"
-};
-
-var response = await client.ExecuteAsync(request);
+var client = new PagBankClient();
+client.WithBaseUrl(BaseUrl.Sandbox);
+client.WithMethod(PagBankMethod.Get);
+client.WithToken("your-token");
+client.WithResource("{seu_recurso}");
 ```
 
 #### Exemplo de criar o pedido
 
 ```c#
-var body = new
+var body = new PagBankBody
 {
-    customer = new
+    Customer = new Customer
     {
-        tax_id = "62046100077",
-        email = "teste@teste.com.br",
-        name = "João Silva"
+        TaxId = "62046100077",
+        Email = "teste@teste.com.br",
+        Name = "Test"
     },
-    reference_id = "1234"
+    ReferenceId = "1234"
 };
-
-var request = new PagBankRequest<object>
-{
-    Body = body,
-    Method = Method.Post,
-    Endpoint = "orders"
-};
-
-var response = await client.ExecuteAsync(request);
+client.WithBaseUrl(BaseUrl.Sandbox);
+client.WithMethod(PagBankMethod.Post);
+client.WithJsonBody(body);
+client.WithToken("your-token");
+client.WithResource("orders");
+var response = await client.ExecuteAsync();
 ```
 
 #### Exemplo de consultar pedidos
 
 ```c#
-var request = new PagBankRequest<object>
-{
-    Method = Method.Get,
-    Endpoint = "orders/ORDE_XXXXXXXX"
-};
-
-var response = await client.ExecuteAsync(request);
+client.WithBaseUrl(BaseUrl.Sandbox);
+client.WithMethod(PagBankMethod.Get);
+client.WithToken("your-token");
+client.WithResource("orders/ORDE_XXXXXXXX");
+var response = await client.ExecuteAsync();
 ```
 
 ## Testes Unitários Compatíveis

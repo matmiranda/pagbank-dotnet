@@ -10,24 +10,21 @@ namespace PagBankTest
         [Test]
         public async Task TestExample()
         {
-            var body = new PagBankRequest
+            var body = new PagBankBody
             {
-                Amount = new Amount { Currency = "BRL", Value = 150099 },
-                Interval = new Interval { Unit = "MONTH", Length = 1 },
-                Trial = new Trial { Enabled = true, HoldSetupFee = false },
-                PaymentMethod = new List<string> { "CREDIT_CARD" },
-                Name = "meu plano 1",
-                Description = "descrição do meu plano",
-                SetupFee = 10
+                Customer = new Customer
+                {
+                    TaxId = "62046100077",
+                    Email = "teste@teste.com.br",
+                    Name = "Test"
+                },
+                refe
             };
-
             var client = new PagBankClient();
-            client.WithBaseUrl(BaseUrl.SandboxSignature);
+            client.WithBaseUrl(BaseUrl.Sandbox);
             client.WithMethod(PagBankMethod.Post);
-            client.WithToken("123");
-            //client.AddOrUpdateHeader("","");
-            client.WithJsonBody(body);
-            client.WithResource("plans");
+            client.WithToken("your-token");
+            client.WithResource("orders");
             var response = await client.ExecuteAsync();
         }
 

@@ -1,7 +1,9 @@
 ﻿namespace PagBank
 {
-    public class PagBankRequest
+    public class PagBankBody
     {
+        [JsonPropertyName("customer"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Customer? Customer { get; set; }
         [JsonPropertyName("amount"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Amount? Amount { get; set; }
         [JsonPropertyName("interval"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -24,5 +26,7 @@
         public Email? Email { get; set; }
         [JsonPropertyName("urls"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<string>? Urls { get; set; }
+        [JsonPropertyName("reference_id"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ReferenceId { get; set; }
     }
 }

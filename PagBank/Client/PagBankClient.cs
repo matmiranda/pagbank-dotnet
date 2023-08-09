@@ -41,7 +41,7 @@
             return this;
         }
 
-        public PagBankClient WithJsonBody(PagBankRequest body)
+        public PagBankClient WithJsonBody(PagBankBody body)
         {
             RestRequest.AddJsonBody(body);
             return this;
