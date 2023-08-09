@@ -20,5 +20,9 @@
         public int? BillingCycles { get; set; }
         [JsonPropertyName("limit_subscriptions"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? LimitSubscriptions { get; set; }
+        [JsonPropertyName("email"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Email? Email { get; set; }
+        [JsonPropertyName("urls"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<string>? Urls { get; set; }
     }
 }
