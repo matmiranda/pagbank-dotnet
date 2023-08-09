@@ -18,13 +18,13 @@ namespace PagBankTest
                     Email = "teste@teste.com.br",
                     Name = "Test"
                 },
-                refe
+                ReferenceId = "1234"
             };
             var client = new PagBankClient();
             client.WithBaseUrl(BaseUrl.Sandbox);
-            client.WithMethod(PagBankMethod.Post);
+            client.WithMethod(PagBankMethod.Get);
             client.WithToken("your-token");
-            client.WithResource("orders");
+            client.WithResource("orders/ORDE_XXXXXXXX");
             var response = await client.ExecuteAsync();
         }
 
