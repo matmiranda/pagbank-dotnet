@@ -22,7 +22,7 @@
 
     }
 
-    public enum Method
+    public enum PagBankMethod
     {
         Get, 
         Post, 

@@ -2,25 +2,66 @@
 {
     public class PagBankClient : IPagBankClient
     {
-        private readonly PagBankConfig _pagBankConfig;
+        private IRestClient RestClient { get; set; }
+        private RestRequest RestRequest { get; set; }
 
-        public PagBankClient(PagBankConfig pagBankConfig)
+        public PagBankClient(IRestClient? restClient = null, RestRequest? restRequest = null)
         {
-            _pagBankConfig = pagBankConfig;
+            RestClient = restClient ?? new RestClient();
+            RestRequest = restRequest ?? new RestRequest();
         }
 
-        public async Task<RestResponse> ExecuteAsync<T>(PagBankRequest<T> pagBankRequest) where T : class
+        public async ValueTask<RestResponse> ExecuteAsync()
         {
-            _pagBankConfig.RestClient ??= new RestClient(PagBankUtil.RestClientOptions(_pagBankConfig));
-            var request = new RestRequest(pagBankRequest.Endpoint, (RestSharp.Method)pagBankRequest.Method);
-            if (pagBankRequest.Body != null)
-                request.AddJsonBody(pagBankRequest.Body, ContentType.Json);
-            request.AddOrUpdateHeader("accept", ContentType.Json);
-            request.AddOrUpdateHeader("user-agent", PagBankUtil.GetUserAgent());
-            if (pagBankRequest.Headers != null)
-                foreach (var header in pagBankRequest.Headers)
-                    request.AddOrUpdateHeader(header.Key, header.Value);
-            return await _pagBankConfig.RestClient.ExecuteAsync(request);
+            RestRequest.AddOrUpdateHeader("user-agent", PagBankUtil.GetUserAgent());
+            return await RestClient.ExecuteAsync(RestRequest);
+        }
+
+        public PagBankClient WithBaseUrl(BaseUrl baseUrl)
+        {
+            RestClient = new RestClient(baseUrl.GetDescription());
+            return this;
+        }
+
+        public PagBankClient WithToken(string token)
+        {
+            RestRequest.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(token, "Bearer");
+            return this;
+        }
+
+        public PagBankClient WithClientId(string clientId)
+        {
+            RestRequest.AddOrUpdateHeader("x-client-id", clientId);
+            return this;
+        }
+
+        public PagBankClient WithClientSecret(string clientSecret)
+        {
+            RestRequest.AddOrUpdateHeader("x-client-secret", clientSecret);
+            return this;
+        }
+
+        public PagBankClient WithJsonBody(PagBankRequest body)
+        {
+            RestRequest.AddJsonBody(body);
+            return this;
+        }
+
+        public PagBankClient WithMethod(PagBankMethod method)
+        {
+            RestRequest.Method = (Method)method;
+            return this;
+        }
+
+        public PagBankClient AddOrUpdateHeader(string key, string value)
+        {
+            RestRequest.AddOrUpdateHeader(key, value);
+            return this;
+        }
+        public PagBankClient WithResource(string resource)
+        {
+            RestRequest.Resource = resource;
+            return this;
         }
     }
 }
