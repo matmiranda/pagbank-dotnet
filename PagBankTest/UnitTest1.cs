@@ -7,26 +7,6 @@ namespace PagBankTest
 {
     public class Tests
     {
-        [Test]
-        public async Task TestExample()
-        {
-            var body = new PagBankBody
-            {
-                Customer = new Customer
-                {
-                    TaxId = "62046100077",
-                    Email = "teste@teste.com.br",
-                    Name = "Test"
-                },
-                ReferenceId = "1234"
-            };
-            var client = new PagBankClient();
-            client.WithBaseUrl(BaseUrl.Sandbox);
-            client.WithMethod(PagBankMethod.Get);
-            client.WithToken("your-token");
-            client.WithResource("orders/ORDE_XXXXXXXX");
-            var response = await client.ExecuteAsync();
-        }
 
         [Test]
         public async Task MockExecuteAsync()

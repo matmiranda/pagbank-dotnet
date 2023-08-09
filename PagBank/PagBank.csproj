@@ -4,14 +4,14 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Matheus Miranda, PagBank</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageTags>pagbank;dotnet</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageId>pagbank-dotnet</PackageId>
     <Title>PagBank for dotnet</Title>
-    <Description>Biblioteca para consumir api pagbank</Description>
+    <Description>Rest for pagbank</Description>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/matmiranda/pagbank-dotnet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
