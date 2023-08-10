@@ -1,4 +1,4 @@
-﻿namespace PagBank
+﻿namespace PagBank.Model
 {
     public class Interval
     {

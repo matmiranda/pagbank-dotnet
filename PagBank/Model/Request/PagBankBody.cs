@@ -23,10 +23,20 @@
         [JsonPropertyName("limit_subscriptions"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? LimitSubscriptions { get; set; }
         [JsonPropertyName("email"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Email? Email { get; set; }
+        public object? Email { get; set; }
         [JsonPropertyName("urls"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<string>? Urls { get; set; }
         [JsonPropertyName("reference_id"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ReferenceId { get; set; }
+        [JsonPropertyName("type"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Type { get; set; }
+        [JsonPropertyName("person"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Person? Person { get; set; }
+        [JsonPropertyName("company"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Company? Company { get; set; }
+        [JsonPropertyName("tos_acceptance"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public TosAcceptance? TosAccpetance { get; set; }
+        [JsonPropertyName("business_category"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? BusinessCategory { get; set; }
     }
 }
