@@ -37,6 +37,6 @@
         [JsonPropertyName("tos_acceptance"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public TosAcceptance? TosAccpetance { get; set; }
         [JsonPropertyName("business_category"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? BusinessCategory { get; set; }
+        public string? BusinessCategory { get; set; }        
     }
 }

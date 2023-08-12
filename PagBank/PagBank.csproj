@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Authors>Matheus Miranda, PagBank</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageTags>pagbank;dotnet</PackageTags>
@@ -18,11 +18,11 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>Copyright (c) 2023 Matheus Miranda</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageIcon>pagbank-dotnet.png</PackageIcon>
+    <PackageIcon>pagbank.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Icon\pagbank-dotnet.png">
+    <None Include="..\Icon\pagbank.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
