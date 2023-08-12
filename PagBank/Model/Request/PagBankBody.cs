@@ -37,6 +37,30 @@
         [JsonPropertyName("tos_acceptance"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public TosAcceptance? TosAccpetance { get; set; }
         [JsonPropertyName("business_category"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? BusinessCategory { get; set; }        
+        public string? BusinessCategory { get; set; }
+        [JsonPropertyName("expiration_date"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public DateTimeOffset? ExpirationDate { get; set; }
+        [JsonPropertyName("customer_modifiable"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public bool? CustomerModifiable { get; set; }
+        [JsonPropertyName("items"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<Item>? Items { get; set; }
+        [JsonPropertyName("additional_amount"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? AdditionalAmount { get; set; }
+        [JsonPropertyName("discount_amount"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? DiscountAmount { get; set; }
+        [JsonPropertyName("shipping"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Shipping? Shipping { get; set; }
+        [JsonPropertyName("payment_methods"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<PaymentMethods>? PaymentMethods { get; set; }
+        [JsonPropertyName("payment_methods_configs"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<PaymentMethodsConfigs>? PaymentMethodsConfigs { get; set; }
+        [JsonPropertyName("soft_descriptor"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? SoftDescriptor { get; set; }
+        [JsonPropertyName("redirect_url"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? RedirectUrl { get; set; }
+        [JsonPropertyName("return_url"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ReturnUrl { get; set; }
+        [JsonPropertyName("notification_urls"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<string>? NotificationUrls { get; set; }
     }
 }
