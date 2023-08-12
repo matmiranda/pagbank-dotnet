@@ -1,4 +1,4 @@
-# <img src="https://github.com/matmiranda/pagbank-dotnet/blob/main/Icon/pagbank.png" height="50" width="50"> pagbank-dotnet
+# <img src="/Icon/pagbank.png" height="50" width="50"> pagbank-dotnet
 
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 ![dotnet status](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml/badge.svg?event=push)
