@@ -17,7 +17,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>Copyright (c) 2023 Matheus Miranda</Copyright>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README-NUGET.md</PackageReadmeFile>
     <PackageIcon>pagbank.png</PackageIcon>
   </PropertyGroup>
 
@@ -30,7 +30,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\README.md">
+    <None Include="..\README-NUGET.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
