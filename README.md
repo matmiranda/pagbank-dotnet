@@ -39,7 +39,7 @@ Para informações detalhadas sobre como usar a biblioteca _**pagbank-dotnet**_ 
 Você pode interagir com as APIs do PagBank por meio de dois ambientes: Sandbox e Produção, veja exemplo da tabela abaixo:
 
 | Ambiente              | Url                                           |
-| -                     | -                                             |
+| :---                  | :---                                          |
 | Sandbox               | https://sandbox.api.pagseguro.com             |
 | SandboxSecure         | https://secure.sandbox.api.pagseguro.com      |
 | SandboxSignature      | https://sandbox.api.assinaturas.pagseguro.com |
