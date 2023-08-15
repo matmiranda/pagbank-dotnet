@@ -23,7 +23,7 @@ A _**pagbank-dotnet**_ foi desenvolvida para simplificar e agilizar a comunicaç
 
 ## Instalação
 
-Para começar a usar a iblioteca _**pagbank-dotnet**_, siga estas etapas simples:
+Para começar a usar a biblioteca _**pagbank-dotnet**_, siga estas etapas simples:
 
 1. Abra seu projeto .NET no Visual Studio ou em sua IDE preferida.
 2. Use o Gerenciador de Pacotes NuGet para adicionar a biblioteca ao seu projeto:
