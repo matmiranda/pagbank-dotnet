@@ -1,7 +1,7 @@
 # <img src="/Icon/pagbank.png" height="50" width="50"> pagbank-dotnet
 
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
-![dotnet status](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml/badge.svg?event=push)
+[![dotnet status](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml/badge.svg?event=push)]()
 [![NuGet Badge](https://buildstats.info/nuget/pagbank-dotnet)](https://www.nuget.org/packages/pagbank-dotnet)
 [![Coverage Status](https://coveralls.io/repos/github/matmiranda/pagbank-dotnet/badge.svg?branch=main&kill_cache=1)](https://coveralls.io/github/matmiranda/pagbank-dotnet?branch=main)
 
