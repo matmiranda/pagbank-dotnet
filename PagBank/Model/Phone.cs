@@ -8,5 +8,7 @@
         public int? Area { get; set; }
         [JsonPropertyName("number"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? Number { get; set; }
+        [JsonPropertyName("type"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Type { get; set; }
     }
 }

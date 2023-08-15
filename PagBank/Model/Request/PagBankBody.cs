@@ -11,7 +11,7 @@
         [JsonPropertyName("trial"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Trial? Trial { get; set; }
         [JsonPropertyName("payment_method"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public List<string>? PaymentMethod { get; set; }
+        public object? PaymentMethod { get; set; }
         [JsonPropertyName("name"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Name { get; set; }
         [JsonPropertyName("description"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -62,5 +62,23 @@
         public string? ReturnUrl { get; set; }
         [JsonPropertyName("notification_urls"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<string>? NotificationUrls { get; set; }
+        [JsonPropertyName("site"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Site { get; set; }
+        [JsonPropertyName("redirect_uri"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? RedirectUri { get; set; }
+        [JsonPropertyName("logo"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Logo { get; set; }
+        [JsonPropertyName("grant_type"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? GrantType { get; set; }
+        [JsonPropertyName("code"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Code { get; set; }
+        [JsonPropertyName("scope"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Scope { get; set; }
+        [JsonPropertyName("refresh_token"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? RefreshToken { get; set; }
+        [JsonPropertyName("token"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Token { get; set; }
+        [JsonPropertyName("charges"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<Charge>? Charges { get; set; }
     }
 }

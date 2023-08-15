@@ -10,9 +10,9 @@
         public string? Email { get; set; }
         [JsonPropertyName("tax_id"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? TaxId { get; set; }
-        [JsonPropertyName("phones"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public List<CustomerPhone>? Phones { get; set; }
         [JsonPropertyName("phone"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Phone? Phone { get; set; }
+        [JsonPropertyName("phones"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<Phone>? Phones { get; set; }
     }
 }
