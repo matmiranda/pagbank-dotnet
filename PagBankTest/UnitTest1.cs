@@ -11,6 +11,7 @@ namespace PagBankTest
         [Test]
         public async Task MockExecuteAsync()
         {
+            var body = new PagBankBody();
             var restClientMock = new Mock<IRestClient>();
             var restRequestMock = new Mock<RestRequest>();
             var restResponseMock = new RestResponse();
