@@ -1,0 +1,40 @@
+{
+  "id": "ACCO_123",
+  "created_at": "2021-07-23T15:17:12.115601-03:00",
+  "token": {
+    "token_type": "Bearer",
+    "access_token": "123",
+    "expires_in": 123456,
+    "refresh_token": "123",
+    "scope": "accounts.read"
+  },
+  "type": "BUYER",
+  "email": "teste@sandboxpagseguro.com.br",
+  "person": {
+    "birth_date": "1994-07-03",
+    "name": "João da Silva",
+    "tax_id": "11111111111",
+    "mother_name": "Maria da Silva",
+    "address": {
+      "region_code": "SP",
+      "city": "São Paulo",
+      "postal_code": "00000000",
+      "street": "Rua São Paulo",
+      "number": "1",
+      "complement": "A",
+      "locality": "Centro",
+      "country": "BRA"
+    },
+    "phones": [
+      {
+        "area": "11",
+        "country": "55",
+        "number": "981111111"
+      }
+    ]
+  },
+  "tos_acceptance": {
+    "user_ip": "127.0.0.1",
+    "date": "2019-04-17T20:07:07.002-02"
+  }
+}
