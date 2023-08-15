@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <None Update="MockResponse\CriarConta_Buyer.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
