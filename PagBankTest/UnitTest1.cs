@@ -28,9 +28,9 @@ namespace PagBankTest
         public async Task MockCriarConta()
         {
             //arquivo mock response
-            var fileName = "MockResponse\\CriarConta_Buyer.json";
-            var jsonFilePath = $"{AppDomain.CurrentDomain.BaseDirectory}{fileName}";
-            var jsonContent = File.ReadAllText(jsonFilePath);
+            //var fileName = "MockResponse\\CriarConta_Buyer.json";
+            //var jsonFilePath = $"{AppDomain.CurrentDomain.BaseDirectory}{fileName}";
+            //var jsonContent = File.ReadAllText(jsonFilePath);
 
             var restClientMock = new Mock<IRestClient>();
             var restRequestMock = new Mock<RestRequest>();
