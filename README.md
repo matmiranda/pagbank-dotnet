@@ -34,6 +34,19 @@ Para começar a usar a iblioteca _**pagbank-dotnet**_, siga estas etapas simples
 
 Para informações detalhadas sobre como usar a biblioteca _**pagbank-dotnet**_ em conjunto com as APIs do PagBank, consulte a nossa [Documentação Oficial](https://dev.pagbank.uol.com.br/reference/introducao).
 
+## Ambiente disponíveis
+
+Você pode interagir com as APIs do PagBank por meio de dois ambientes: Sandbox e Produção, veja exemplo da tabela abaixo:
+
+| Ambiente              | Url                                           |
+| -                     | -                                             |
+| Sandbox               | https://sandbox.api.pagseguro.com             |
+| SandboxSecure         | https://secure.sandbox.api.pagseguro.com      |
+| SandboxSignature      | https://sandbox.api.assinaturas.pagseguro.com |
+| Production            | https://api.pagseguro.com                     |
+| ProductionSecure      | https://secure.api.pagseguro.com              |
+| ProductionSignature   | https://api.assinaturas.pagseguro.com         |
+
 
 ## Exemplo de uso
 
