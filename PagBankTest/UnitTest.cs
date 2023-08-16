@@ -9,13 +9,15 @@ namespace PagBankTest
     public class Tests
     {
         [Test]
-        public async Task ExemploBasicoInvalidToken()
+        public async Task SandBoxInvalidToken()
         {
             var client = new PagBankClient();
             client.WithBaseUrl(BaseUrl.Sandbox);
             client.WithMethod(PagBankMethod.Get);
             client.WithToken("your-token");
-            client.WithResource("{seu_recurso}");
+            client.WithResource("{seu-recurso}");
+            client.WithJsonBody(new PagBankBody());
+            client.AddOrUpdateHeader("custom-header", "123");
             var response = await client.ExecuteAsync();
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Forbidden));
         }
