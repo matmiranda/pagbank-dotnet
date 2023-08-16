@@ -2,11 +2,11 @@
 {
     public class PagBankUtil
     {
+        #pragma warning disable CS8602 // Desreferência de uma referência possivelmente nula.
         internal static string GetUserAgent()
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var attribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
-            var version = attribute?.InformationalVersion;
+            var attribute = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>();            
+            var version = attribute.InformationalVersion;
             return $"pagbank-dotnet/{version}";
         }
     }
