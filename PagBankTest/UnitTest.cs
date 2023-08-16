@@ -9,6 +9,17 @@ namespace PagBankTest
     public class Tests
     {
         [Test]
+        public async Task ExemploBasicoInvalidToken()
+        {
+            var client = new PagBankClient();
+            client.WithBaseUrl(BaseUrl.Sandbox);
+            client.WithMethod(PagBankMethod.Get);
+            client.WithToken("your-token");
+            client.WithResource("{seu_recurso}");
+            var response = await client.ExecuteAsync();
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Forbidden));
+        }
+        [Test]
         public async Task MockExemploBasico()
         {
             var restClientMock = new Mock<IRestClient>();
