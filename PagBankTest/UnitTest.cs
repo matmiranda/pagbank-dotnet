@@ -9,6 +9,18 @@ namespace PagBankTest
     public class Tests
     {
         [Test]
+        public async Task ExemploBasicoSandBox() 
+        {
+            var client = new PagBankClient();
+            client.WithBaseUrl(BaseUrl.Sandbox);
+            client.WithMethod(PagBankMethod.Get);
+            client.WithToken("your-token");
+            client.WithResource("orders");
+            var response = await client.ExecuteAsync();
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
+
+        }
+        [Test]
         public async Task MockExemploBasico()
         {
             var body = new PagBankBody
