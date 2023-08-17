@@ -96,7 +96,7 @@ var response = await client.ExecuteAsync();
 
 A biblioteca _**pagbank-dotnet**_ é compatível e funcional com testes unitários usando a biblioteca de mocking Moq. Isso permite que você crie testes robustos para garantir a qualidade e a estabilidade da sua aplicação. 
 
-Veja um [exemplo](https://github.com/matmiranda/pagbank-dotnet/blob/main/PagBankTest/UnitTest1.cs) de como você pode testar um serviço utilizando Moq.
+Veja um [exemplo](https://github.com/matmiranda/pagbank-dotnet/blob/main/PagBankTest/UnitTest.cs) de como você pode testar um serviço utilizando Moq.
 
 ## Saiba mais
 
