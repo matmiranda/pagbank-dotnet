@@ -7,7 +7,7 @@
         [JsonPropertyName("amount"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? Amount { get; set; }
         [JsonPropertyName("service_type"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Service_type { get; set; }
+        public string? ServiceType { get; set; }
         [JsonPropertyName("address"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Address? Address { get; set; }
         [JsonPropertyName("address_modifiable"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -3,112 +3,229 @@ using PagBank;
 using PagBank.Model;
 using RestSharp;
 using System.Net;
-using System.Reflection;
 
 namespace PagBankTest
 {
     public class Tests
     {
         [Test]
-        public async Task SandBoxInvalidToken()
-        {
-            var body = new PagBankBody();
-            var customer = new Customer();
-            var phones = new List<Phone>();
-            var item = new Item();
-            var items = new List<Item>();
-            var phone = new Phone();
-            var charge = new Charge();
-            var address = new Address();
-            var charges = new List<Charge>();
-            var paymentMethod = new PaymentMethod();
-            var card = new Card();
-            var holder = new Holder();
-
-            body.ReferenceId = "referencia do pedido";
-            customer.Name = "Jose da Silva";
-            customer.Email = "email@test.com";
-            customer.TaxId = "12345678909";
-            phone.Area = 11;
-            phone.Number = 999999999;
-            phone.Type = "MOBILE";
-            customer.Phone = phone;
-            item.ReferenceId = "referencia do item";
-            item.Name = "nome do item";
-            item.Quantity = 1;
-            item.UnitAmount = 10000;
-            charge.ReferenceId = "referencia do pagamento";
-            charge.Description = "descricao do pagamento";
-            charge.Amount = new Amount { Value = 10000, Currency = "BRL" };
-            paymentMethod.Type = "CREDIT_CARD";
-            paymentMethod.Installments = 1;
-            card.Number = "4111111111111111";
-            card.ExpMonth = "12";
-            card.ExpYear = "2026";
-            card.SecuritCode = "123";
-            holder.Name = "Jose da Silva";
-            card.Holder = holder;
-            paymentMethod.Card = card;
-            paymentMethod.Capture = true;
-            charge.PaymentMethod = paymentMethod;
-            items.Add(item);
-            charges.Add(charge);
-            address.Street = "Avenida Brigadeiro Faria Lima";
-            address.Number = "1384";
-            address.Complement = "apto 12";
-            address.Locality = "Pinheiros";
-            address.City = "São Paulo";
-            address.RegionCode = "SP";
-            address.Country = "BRA";
-            address.PostalCode = "01452002";
-            customer.Phones = phones;
-            body.Customer = customer;
-            body.Items = items;
-            body.Charges = charges;
-            body.Shipping = new Shipping { Address = address };
-            body.NotificationUrls = new List<string> { "https://meusite.com/notificacoes" };
-            body.Charges = charges;
-            body.Trial = new Trial { Enabled = true, HoldSetupFee = false };
-            body.TosAccpetance = new TosAcceptance { Date = DateTime.Now, UserIp = "1" };
-
-            var client = new PagBankClient();
-            client.WithBaseUrl(BaseUrl.Sandbox);
-            client.WithMethod(PagBankMethod.Get);
-            client.WithToken("your-token");
-            client.WithResource("{seu-recurso}");
-            client.WithJsonBody(body);
-            client.AddOrUpdateHeader("custom-header", "123");
-            var response = await client.ExecuteAsync();
-            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Forbidden));
-        }
-        [Test]
         public async Task MockExemploBasico()
         {
-            var restClientMock = new Mock<IRestClient>();
-            var restRequestMock = new Mock<RestRequest>();
-            var restResponseMock = new RestResponse();
-            restResponseMock.StatusCode = HttpStatusCode.InternalServerError;
-            restResponseMock.Content = "Something unexpected happened. Please, contact the PagBank Team";
-            restClientMock
-                .Setup(x => x.ExecuteAsync(It.IsAny<RestRequest>(), It.IsAny<CancellationToken>()))
-                .ReturnsAsync(restResponseMock);
-            var pagBankClient = new PagBankClient(restClientMock.Object, restRequestMock.Object);
-            pagBankClient.WithToken("123");
-            var response = await pagBankClient.ExecuteAsync();
-            Assert.That(response, Is.Not.Null);
-        }
-        [Test]
-        public async Task MockCriarConta()
-        {
-            //arquivo mock response
-            //var fileName = "MockResponse\\CriarConta_Buyer.json";
-            //var jsonFilePath = $"{AppDomain.CurrentDomain.BaseDirectory}{fileName}";
-            //var jsonContent = File.ReadAllText(jsonFilePath);
+            var body = new PagBankBody
+            {
+                ReferenceId = "",
+                Description = "",
+                DiscountAmount = 0,
+                Scope = "",
+                SetupFee = 0,
+                Shipping = new Shipping
+                {
+                    Address = new Address
+                    {
+                        Street = "",
+                        Number = "",
+                        Complement = "",
+                        Locality = "",
+                        City = "",
+                        RegionCode = "",
+                        Country = "",
+                        PostalCode = ""
+                    },
+                    AddressModifiable = true,
+                    ServiceType = "",
+                    Amount = 0,
+                    Box = new Box
+                    {
+                        Dimensions = new Dimensions
+                        {
+                            Height = 0,
+                            Length = 0,
+                            Width = 0,
+                        },
+                        Weight = 0
+                    },
+                    Type = ""
+                },
+                ExpirationDate = DateTime.Now,
+                SoftDescriptor = "",
+                AdditionalAmount = 0,
+                Site = "",
+                LimitSubscriptions = 0,
+                Amount = new Amount
+                {
+                    Value = 0,
+                    Currency = ""
+                },
+                BillingCycles = 0,
+                BusinessCategory = "",
+                Charges = new List<Charge>
+                {
+                    new Charge
+                    {
+                        Amount = new Amount
+                        {
+                            Currency = "",
+                            Value = 0
+                        },
+                        Splits = new Splits
+                        {
+                            Method = "",
+                            Receivers = new List<Receiver>
+                            {
+                                new Receiver
+                                {
+                                    Account = new Account
+                                    {
+                                        Id = ""
+                                    },
+                                    Amount = new Amount
+                                    {
+                                        Value = 0,
+                                        Currency = ""
+                                    }
+                                }
+                            }
+                        },
+                        Description = "",
+                        PaymentMethod = new PaymentMethod
+                        {
+                            Capture = true,
+                            Card = new Card
+                            {
+                                ExpMonth = "",
+                                SecuritCode = "",
+                                Store = true,
+                                ExpYear = "",
+                                Holder = new Holder
+                                {
+                                    Name = ""
+                                },
+                                Number = ""
+                            },
+                            Installments = 0,
+                            Type = ""
+                        },
+                        ReferenceId = ""
+                    }
+                },
+                Code = "",
+                Company = new Company
+                {
+                    Address = new Address { },
+                    Name = "",
+                    TaxId = "",
+                    Phones = new List<Phone>
+                    {
+                        new Phone
+                        {
+
+                        }
+                    }
+                },
+                Customer = new Customer
+                {
+                    Email = "",
+                    Enabled = true,
+                    Name = "",
+                    TaxId = "",
+                    Phone = new Phone
+                    {
+                        Area = 0,
+                        Type = "",
+                        Country = 0,
+                        Number = 0
+                    },
+                    Phones = new List<Phone>
+                    {
+                        new Phone
+                        {
+                        }
+                    }
+                },
+                CustomerModifiable = true,
+                Email = new Email
+                {
+                    Customer = new Customer { },
+                    Merchant = new Merchant
+                    {
+                        Enabled = true
+                    }
+                },
+                GrantType = "",
+                Interval = new Interval
+                {
+                    Length = 0,
+                    Unit = ""
+                },
+                Items = new List<Item> {
+                    new Item
+                    {
+                        Name = "",
+                        Quantity = 0,
+                        ReferenceId = "",
+                        UnitAmount = 0
+                    }
+                },
+                Logo = "",
+                Name = "",
+                NotificationUrls = new List<string> { "" },
+                PaymentMethod = "",
+                PaymentMethods = new List<PaymentMethods>
+                {
+                    new PaymentMethods
+                    {
+                        Brands = new List<string> { "" },
+                        Type = new List<string> { "" }
+                    }
+                },
+                PaymentMethodsConfigs = new List<PaymentMethodsConfigs>
+                {
+                    new PaymentMethodsConfigs
+                    {
+                        Brands = new List<string> { "" },
+                        ConfigOptions = new List<ConfigOptions>
+                        {
+                            new ConfigOptions
+                            {
+                                Option = "",
+                                Value = ""
+                            }
+                        },
+                        Type = ""
+                    }
+                },
+                Person = new Person
+                {
+                    Address = new Address { },
+                    BirthDate = "",
+                    MotherName = "",
+                    Name = "",
+                    Phones = new List<Phone> { },
+                    TaxId = 0
+                },
+                RedirectUri = "",
+                RedirectUrl = "",
+                RefreshToken = "",
+                ReturnUrl = "",
+                Token = "",
+                Type = "",
+                Urls = new List<string> { "" },
+                Trial = new Trial
+                {
+                    Days = 0,
+                    Enabled = true,
+                    HoldSetupFee = true
+                },
+                TosAccpetance = new TosAcceptance
+                {
+                    Date = DateTime.Now,
+                    UserIp = ""
+                }
+            };
 
             var restClientMock = new Mock<IRestClient>();
             var restRequestMock = new Mock<RestRequest>();
             var restResponseMock = new RestResponse();
-            var jsonReponse = 
             restResponseMock.StatusCode = HttpStatusCode.InternalServerError;
             restResponseMock.Content = "Something unexpected happened. Please, contact the PagBank Team";
             restClientMock
@@ -117,7 +234,10 @@ namespace PagBankTest
             var pagBankClient = new PagBankClient(restClientMock.Object, restRequestMock.Object);
             pagBankClient.WithBaseUrl(BaseUrl.Sandbox);
             pagBankClient.WithMethod(PagBankMethod.Post);
+            pagBankClient.WithJsonBody(body);
             pagBankClient.WithToken("your-token");
+            pagBankClient.WithResource("{seu-recurso}");
+            pagBankClient.AddOrUpdateHeader("custom-header", "123");
             pagBankClient.WithClientId("your-client-id");
             pagBankClient.WithClientSecret("your-client-secret");
             var response = await pagBankClient.ExecuteAsync();
