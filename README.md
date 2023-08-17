@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![dotnet status](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml/badge.svg?event=push)](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml)
 [![NuGet Badge](https://buildstats.info/nuget/pagbank-dotnet)](https://www.nuget.org/packages/pagbank-dotnet)
-[![Coverage Status](https://coveralls.io/repos/github/matmiranda/pagbank-dotnet/badge.svg?branch=main)](https://coveralls.io/github/matmiranda/pagbank-dotnet?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/matmiranda/pagbank-dotnet/badge.svg?branch=main&kill_cache=1)](https://coveralls.io/github/matmiranda/pagbank-dotnet?branch=main)
 
 Bem-vindo ao repositório da _**pagbank-dotnet**_! 
 
