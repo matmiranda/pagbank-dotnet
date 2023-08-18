@@ -80,5 +80,7 @@
         public string? Token { get; set; }
         [JsonPropertyName("charges"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<Charge>? Charges { get; set; }
+        [JsonPropertyName("qr_codes"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<QrCodes>? QrCodes { get; set; }
     }
 }

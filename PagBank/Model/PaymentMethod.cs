@@ -10,5 +10,11 @@
         public bool? Capture { get; set; }
         [JsonPropertyName("card"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Card? Card { get; set; }
+        [JsonPropertyName("authentication_method"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public AuthenticationMethod? AuthenticationMethod { get; set; }
+        [JsonPropertyName("boleto"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Boleto? Boleto { get; set; }
+        [JsonPropertyName("soft_descriptor"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? SoftDescriptor { get; set; }
     }
 }

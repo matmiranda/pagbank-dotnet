@@ -12,5 +12,7 @@
         public PaymentMethod? PaymentMethod { get; set; }
         [JsonPropertyName("splits"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Splits? Splits { get; set; }
+        [JsonPropertyName("notification_urls"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? NotificationUrls { get; set; }
     }
 }
