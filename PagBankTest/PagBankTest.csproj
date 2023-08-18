@@ -25,10 +25,4 @@
     <ProjectReference Include="..\PagBank\PagBank.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="MockResponse\CriarConta_Buyer.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

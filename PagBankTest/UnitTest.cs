@@ -9,7 +9,7 @@ namespace PagBankTest
     public class Tests
     {
         [Test]
-        public async Task ExemploBasicoSandBox() 
+        public async Task ExemploBasicoSandBox()
         {
             var client = new PagBankClient();
             client.WithBaseUrl(BaseUrl.Sandbox);
@@ -104,18 +104,47 @@ namespace PagBankTest
                             Capture = true,
                             Card = new Card
                             {
-                                ExpMonth = "",
+                                ExpMonth = 0,
                                 SecuritCode = "",
                                 Store = true,
-                                ExpYear = "",
+                                ExpYear = 0,
                                 Holder = new Holder
                                 {
                                     Name = ""
                                 },
-                                Number = ""
+                                Number = "",
+                                TokenData = new TokenData
+                                {
+                                    AssuranceLevel = 0,
+                                    Cryptogram = "", 
+                                    EcommerceDomain = "", 
+                                    RequestorId = "", 
+                                    Wallet = ""
+                                }
                             },
                             Installments = 0,
-                            Type = ""
+                            Type = "",
+                            Boleto = new Boleto
+                            {
+                                DueDate = "",
+                                Holder = new Holder { },
+                                InstructionLines = new InstructionLines
+                                {
+                                    Line1 = "",
+                                    Line2 = ""
+                                }
+                            },
+                            AuthenticationMethod = new AuthenticationMethod
+                            {
+                                Cavv = "",
+                                DstransId = "",
+                                Eci = "",
+                                Td = "",
+                                Type = "",
+                                Version = "",
+                                Xid = ""
+                            },
+                            SoftDescriptor = ""
                         },
                         ReferenceId = ""
                     }
@@ -232,6 +261,13 @@ namespace PagBankTest
                 {
                     Date = DateTime.Now,
                     UserIp = ""
+                },
+                QrCodes = new List<QrCodes>
+                {
+                    new QrCodes
+                    {
+                        Amount = new Amount { },
+                        ExpirationDate = "" }
                 }
             };
 

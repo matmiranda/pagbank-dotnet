@@ -15,7 +15,7 @@
         [JsonPropertyName("store"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? Store { get; set; }
         [JsonPropertyName("token_data"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public TokenData? Token_data { get; set; }
+        public TokenData? TokenData { get; set; }
         [JsonPropertyName("id"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Id { get; set; }
         [JsonPropertyName("encrypted"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
