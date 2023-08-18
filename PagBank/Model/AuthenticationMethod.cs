@@ -5,7 +5,7 @@
         [JsonPropertyName("type"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Type { get; set; }
         [JsonPropertyName("id"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Td { get; set; }
+        public string? Id { get; set; }
         [JsonPropertyName("cavv"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Cavv { get; set; }
         [JsonPropertyName("eci"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

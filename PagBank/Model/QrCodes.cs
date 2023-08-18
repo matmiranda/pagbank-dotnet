@@ -5,6 +5,6 @@
         [JsonPropertyName("amount"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Amount? Amount { get; set; }
         [JsonPropertyName("expiration_date"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ExpirationDate { get; set; }
+        public DateTimeOffset? ExpirationDate { get; set; }
     }
 }

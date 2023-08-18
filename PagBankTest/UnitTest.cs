@@ -139,7 +139,7 @@ namespace PagBankTest
                                 Cavv = "",
                                 DstransId = "",
                                 Eci = "",
-                                Td = "",
+                                Id = "",
                                 Type = "",
                                 Version = "",
                                 Xid = ""
@@ -267,7 +267,7 @@ namespace PagBankTest
                     new QrCodes
                     {
                         Amount = new Amount { },
-                        ExpirationDate = "" }
+                        ExpirationDate = new DateTimeOffset(DateTime.Now) }
                 }
             };
 
