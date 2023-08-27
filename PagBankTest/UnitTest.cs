@@ -126,7 +126,7 @@ namespace PagBankTest
                             Type = "",
                             Boleto = new Boleto
                             {
-                                DueDate = "",
+                                DueDate = "2023-06-20",
                                 Holder = new Holder { },
                                 InstructionLines = new InstructionLines
                                 {

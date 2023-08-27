@@ -14,6 +14,8 @@
         public string? PostalCode { get; set; }
         [JsonPropertyName("country"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Country { get; set; }
+        [JsonPropertyName("region"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Region { get; set; }
         [JsonPropertyName("region_code"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? RegionCode { get; set; }
         [JsonPropertyName("city"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
