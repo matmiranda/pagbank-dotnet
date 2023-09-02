@@ -1,10 +1,10 @@
 # <img src="/Icon/pagbank.png" height="50" width="50"> pagbank-dotnet
 
-[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![dotnet status](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml/badge.svg?event=push)](https://github.com/matmiranda/pagbank-dotnet/actions/workflows/dotnet.yml)
-[![Nuget](https://img.shields.io/nuget/dt/pagbank-dotnet?cacheSeconds=300)](https://www.nuget.org/packages/pagbank-dotnet)
-[![Nuget](https://img.shields.io/nuget/v/pagbank-dotnet?cacheSeconds=300)](https://www.nuget.org/packages/pagbank-dotnet)
-[![Coverage Status](https://coveralls.io/repos/github/matmiranda/pagbank-dotnet/badge.svg?branch=main)](https://coveralls.io/github/matmiranda/pagbank-dotnet?branch=main)
+[![nuget downloads](https://img.shields.io/nuget/dt/pagbank-dotnet?cacheSeconds=300)](https://www.nuget.org/packages/pagbank-dotnet)
+[![nuget version](https://img.shields.io/nuget/v/pagbank-dotnet?cacheSeconds=300)](https://www.nuget.org/packages/pagbank-dotnet)
+[![coverage status](https://coveralls.io/repos/github/matmiranda/pagbank-dotnet/badge.svg?branch=main)](https://coveralls.io/github/matmiranda/pagbank-dotnet?branch=main)
 
 Bem-vindo ao repositório da _**pagbank-dotnet**_! 
 
